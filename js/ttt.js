@@ -1,11 +1,3 @@
-// Your code here
-// Use the jQuery
-// $(document).ready(function(event) {
-// 	// count determines who's turn it is
-// 	var count = 0
-
-
-
 $(document).ready(function(event) {
 	
 	// determines player's turn
