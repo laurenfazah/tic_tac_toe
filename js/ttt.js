@@ -1,9 +1,8 @@
 $(document).ready(function(event) {
 	
-	// determines player's turn
+	// setting up new game
 	var count = 0;
 
-	// setting up the div grid to access indexes
 	var board = [
 		[0, 0, 0], 
 		[0, 0, 0], 
@@ -19,7 +18,7 @@ $(document).ready(function(event) {
 
 	messageBoard("Please enter your names to start the game!");
 
-	function init(){
+	var init = function(){
         turn = "";
         board =[
         	[0,0,0],
@@ -79,17 +78,19 @@ $(document).ready(function(event) {
 			count++;
 			board[row][col] = 1;
 			winnerCheck(1, player1Name);
+			draw();
 		} else {
 			messageBoard(player1Name + "'s turn. Click a circle to mark it yellow.");
 			$(this).addClass('blue');
 			count++;
 			board[row][col] = 2;
 			winnerCheck(2, player2Name);
+			draw();
 		};
 	});
 
 // playerValue refers to the value each player gave their tiles, respectively
-function winnerCheck(playerValue, playerName){
+var winnerCheck = function(playerValue, playerName){
     if(
         (board[0][0]==playerValue && board[0][1]==playerValue && board[0][2]==playerValue) ||
         (board[1][0]==playerValue && board[1][1]==playerValue && board[1][2]==playerValue) ||
@@ -108,4 +109,12 @@ function winnerCheck(playerValue, playerName){
       };
       return false;
 		};
+
+	var draw = function(){
+		if(count == 9) {
+			messageBoard("It's a draw!");
+		};
+	};
+
+
 });
