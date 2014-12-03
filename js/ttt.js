@@ -10,19 +10,36 @@ $(document).ready(function(event) {
 		[0, 0, 0]
 	];
 
+	hasWinner = 0;
+
 	// updates message below board for players
 	function messageBoard(x){
 	  return $("#messageBoard").text(x);
 	};
 
-	messageBoard("Please enter your names to start the game!")
+	messageBoard("Please enter your names to start the game!");
+
+	function init(){
+        turn = "";
+        board =[
+        	[0,0,0],
+        	[0,0,0],
+        	[0,0,0]
+        ];
+        $("td").map(function() {
+            $(this).text("");
+        }).get();
+        hasWinner = 0;
+        count=0;
+        $('td').addClass('reset')
+	}
 
 	// gathering player info and setting up clean board
 	$("#playButton").click(function (){
 
-    // if(hasWinner==1){
-    //     init();
-    // }
+    if(hasWinner==1){
+        init();
+    }
 
     // setting variables equal to user name input
     player1Name = $("#player-1-inp").val();
@@ -36,16 +53,18 @@ $(document).ready(function(event) {
 
 		messageBoard(player1Name + ", choose your first position to begin the game.");
 
-    // setTurn();
+    // randomly set turn function
 	});
-
-
-
 
 	// upon click change turns, countt++, change box value, check if winner
 	$('td').click(function() {
 		var row = $(this).parent().index();
  		var col = $(this).index();
+
+ 		if(player1Name=="" || player2Name==""){
+      alert("Please set player all the names.");
+      return;
+    }
 
  		// doesn't allow spot to be clicked on twice
  		if(board[row][col]!==0){
@@ -58,20 +77,14 @@ $(document).ready(function(event) {
 			messageBoard(player2Name + "'s turn. Click a circle to mark it blue.");
 			$(this).addClass('yellow');
 			count++;
-			if(count == 9) {
-				messageBoard("It's a draw!");
-			};
 			board[row][col] = 1;
-			var ifWon = winnerCheck(1, player1Name);
+			winnerCheck(1, player1Name);
 		} else {
 			messageBoard(player1Name + "'s turn. Click a circle to mark it yellow.");
 			$(this).addClass('blue');
 			count++;
-			if(count == 9) {
-				messageBoard("It's a draw!");
-			};
 			board[row][col] = 2;
-			var ifWon = winnerCheck(2, player2Name);
+			winnerCheck(2, player2Name);
 		};
 	});
 

@@ -5,4 +5,4 @@ tic_tac_toe
 *randomize first player
 *keep count of wins per player
 *play again option
-*
+*hover with player color
