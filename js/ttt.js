@@ -12,11 +12,18 @@ $(document).ready(function(event) {
 	hasWinner = 0;
 
 	// updates message below board for players
-	function messageBoard(x){
+	var messageBoard = function(x){
 	  return $("#messageBoard").text(x);
 	};
 
 	messageBoard("Please enter your names to start the game!");
+
+	var draw = function(){
+		if(count > 8 && winnerCheck() == false) {
+			alert("It's a draw!");
+		};
+	};
+
 
 	var init = function(){
         turn = "";
@@ -102,30 +109,22 @@ $(document).ready(function(event) {
 
 // playerValue refers to the value each player gave their tiles, respectively
 var winnerCheck = function(playerValue, playerName){
-    if(
-        (board[0][0]==playerValue && board[0][1]==playerValue && board[0][2]==playerValue) ||
-        (board[1][0]==playerValue && board[1][1]==playerValue && board[1][2]==playerValue) ||
-        (board[2][0]==playerValue && board[2][1]==playerValue && board[2][2]==playerValue) ||
+  if(
+      (board[0][0]==playerValue && board[0][1]==playerValue && board[0][2]==playerValue) ||
+      (board[1][0]==playerValue && board[1][1]==playerValue && board[1][2]==playerValue) ||
+      (board[2][0]==playerValue && board[2][1]==playerValue && board[2][2]==playerValue) ||
 
-        (board[0][0]==playerValue && board[1][0]==playerValue && board[2][0]==playerValue) ||
-        (board[0][1]==playerValue && board[1][1]==playerValue && board[2][1]==playerValue) ||
-        (board[0][2]==playerValue && board[1][2]==playerValue && board[2][2]==playerValue) ||
+      (board[0][0]==playerValue && board[1][0]==playerValue && board[2][0]==playerValue) ||
+      (board[0][1]==playerValue && board[1][1]==playerValue && board[2][1]==playerValue) ||
+      (board[0][2]==playerValue && board[1][2]==playerValue && board[2][2]==playerValue) ||
 
-        (board[0][0]==playerValue && board[1][1]==playerValue && board[2][2]==playerValue) ||
-        (board[0][2]==playerValue && board[1][1]==playerValue && board[2][0]==playerValue)
-      ){
-    		alert(playerName + " wins!");
-        hasWinner = 1;
-        return true;
-      };
-      return false;
-		};
-
-	var draw = function(){
-		if(count == 9) {
-			messageBoard("It's a draw!");
-		};
+      (board[0][0]==playerValue && board[1][1]==playerValue && board[2][2]==playerValue) ||
+      (board[0][2]==playerValue && board[1][1]==playerValue && board[2][0]==playerValue)
+    ){
+  		alert(playerName + " wins!");
+      hasWinner = 1;
+      return true;
+    };
+    return false;
 	};
-
-
 });
