@@ -57,9 +57,7 @@ $(document).ready(function(event) {
 
 	// hover classes for clear selection
 	$( "td" ).hover(function() {
-		if($(e.target).hasClass('blue') || $(e.target).hasClass('yellow')){
-			return;
-		} else if (count % 2 === 0) {
+		if (count % 2 === 0) {
   		$(this).toggleClass('yellowHover');
   		return;
 		} else {
