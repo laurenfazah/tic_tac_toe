@@ -55,6 +55,19 @@ $(document).ready(function(event) {
     // randomly set turn function
 	});
 
+	// hover classes for clear selection
+	$( "td" ).hover(function() {
+		if($(e.target).hasClass('blue') || $(e.target).hasClass('yellow')){
+			return;
+		} else if (count % 2 === 0) {
+  		$(this).toggleClass('yellowHover');
+  		return;
+		} else {
+  		$(this).toggleClass('blueHover');
+  		return;
+		};
+	});
+
 	// upon click change turns, countt++, change box value, check if winner
 	$('td').click(function() {
 		var row = $(this).parent().index();
@@ -73,19 +86,19 @@ $(document).ready(function(event) {
 		// if count is even, player 1 is yellow
 		// if count is odd, player 2 is blue
 		if (count % 2 === 0) {
-			messageBoard(player2Name + "'s turn. Click a circle to mark it blue.");
+			board[row][col] = 1;
 			$(this).addClass('yellow');
 			count++;
-			board[row][col] = 1;
 			winnerCheck(1, player1Name);
 			draw();
+			messageBoard(player2Name + "'s turn. Click a circle to mark it blue.");
 		} else {
-			messageBoard(player1Name + "'s turn. Click a circle to mark it yellow.");
+			board[row][col] = 2;
 			$(this).addClass('blue');
 			count++;
-			board[row][col] = 2;
 			winnerCheck(2, player2Name);
 			draw();
+			messageBoard(player1Name + "'s turn. Click a circle to mark it yellow.");
 		};
 	});
 

@@ -31,10 +31,6 @@ table {
   box-shadow: 2px 2px 0px #888888
 }
 
-/*.box_cell:hover {
-  background-color: #aaa;
-}*/
-
 .yellow {
   background-color: #ffc300;
 }
@@ -43,15 +39,24 @@ table {
   background-color: #73d2c9;
 }
 
-.reset {
-  background-color: none;
+.yellowHover {
+  background-color: #ffc300;
+  opacity: 0.5;
 }
 
+.blueHover {
+  background-color: #73d2c9;
+  opacity: 0.5;
+}
+
+/*.reset {
+  background-color: none;
+}
+*/
 #messageBoard {
   text-align: center;
 }
 
 #panel {
   text-align: center;
-  margin: 20px;
 }
