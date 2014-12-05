@@ -36,7 +36,9 @@ $(document).ready(function(event) {
         }).get();
         hasWinner = 0;
         count=0;
-        $('td').addClass('reset')
+        $('td').removeClass('yellowHover blueHover yellow blue')
+        player1Name = $("#player-1-inp").val();
+    		player2Name = $("#player-2-inp").val();
 	}
 
 	// gathering player info and setting up clean board
