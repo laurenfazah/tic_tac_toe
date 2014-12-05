@@ -19,11 +19,10 @@ $(document).ready(function(event) {
 	messageBoard("Please enter your names to start the game!");
 
 	var draw = function(){
-		if(count > 8 && winnerCheck() == false) {
+		if(winnerCheck() == false && count > 8) {
 			alert("It's a draw!");
 		};
 	};
-
 
 	var init = function(){
         turn = "";
@@ -121,8 +120,8 @@ var winnerCheck = function(playerValue, playerName){
       (board[0][0]==playerValue && board[1][1]==playerValue && board[2][2]==playerValue) ||
       (board[0][2]==playerValue && board[1][1]==playerValue && board[2][0]==playerValue)
     ){
+  		hasWinner = 1;
   		alert(playerName + " wins!");
-      hasWinner = 1;
       return true;
     };
     return false;

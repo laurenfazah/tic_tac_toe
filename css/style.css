@@ -9,7 +9,10 @@ body {
 
 #main_container {
 	margin: 10px auto;
-	width: 800px;
+	width: 100%;
+}
+
+#main_heading {
 }
 
 .heading {
@@ -55,6 +58,7 @@ td.box_cell.blue {
 */
 #messageBoard {
   text-align: center;
+  font-size: 90%;
 }
 
 #panel {
