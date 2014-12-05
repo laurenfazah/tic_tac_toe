@@ -11,6 +11,8 @@ $(document).ready(function(event) {
 
 	hasWinner = 0;
 
+	$("#playButton").text('Play!')
+
 	// updates message below board for players
 	var messageBoard = function(x){
 	  return $("#messageBoard").text(x);
