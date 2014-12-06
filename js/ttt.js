@@ -11,14 +11,12 @@ $(document).ready(function(event) {
 
 	hasWinner = 0;
 
-	$("#playButton").text('Play!')
+	$("#playButton").text('play!')
 
 	// updates message below board for players
 	var messageBoard = function(x){
 	  return $("#messageBoard").text(x);
 	};
-
-	messageBoard("Please enter your names to start the game!");
 
 	var draw = function(){
 		if(winnerCheck() == false && count > 8) {

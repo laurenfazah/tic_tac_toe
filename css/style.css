@@ -1,5 +1,6 @@
 * {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  color: #333333;
 }
 
 body {
@@ -8,7 +9,7 @@ body {
 }
 
 #main_container {
-	margin: 10px auto;
+	margin: 0px auto;
 	width: 100%;
 }
 
@@ -26,7 +27,7 @@ table {
 }
 
 .box_cell {
-	border: 1px solid black;
+	border: 1px solid #333333;
 	width: 150px;
 	height: 150px;
   border-radius: 75px;
@@ -52,10 +53,6 @@ td.box_cell.blue {
   opacity: 0.5;
 }
 
-/*.reset {
-  background-color: none;
-}
-*/
 #messageBoard {
   text-align: center;
   font-size: 90%;
@@ -63,4 +60,26 @@ td.box_cell.blue {
 
 #panel {
   text-align: center;
+}
+
+.input {
+  height: 30px;
+  width: 200px;
+  font-size: 110%;
+  border-radius: 5px;
+  border: 1px solid #333333;
+  text-align: center;
+}
+
+#playButton {
+  height: 45px;
+  width: 75px;
+  font-size: 110%;
+  color: #ffffff;
+  margin: 10px 10px;
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: 1px solid #333333;
+  text-align: center;
+  background-color: #73d29a;
 }
