@@ -16,6 +16,9 @@ $(document).ready(function(event) {
 	// updates message below board for players
 	var messageBoard = function(x){
 	  return $("#messageBoard").text(x);
+	  if (winnerCheck() == true) {
+  		$("#messageBoard").text('Great game! Want to play again?')
+	  }
 	};
 
 	messageBoard("Please enter your names to start the game!");
@@ -126,6 +129,7 @@ var winnerCheck = function(playerValue, playerName){
     ){
   		hasWinner = 1;
   		alert(playerName + " wins!");
+  		$("#playButton").text('Play again!')
       return true;
     };
     return false;
