@@ -16,11 +16,15 @@ $(document).ready(function(event) {
 	// updates message below board for players
 	var messageBoard = function(x){
 	  return $("#messageBoard").text(x);
+	  if (winnerCheck() == true) {
+  		$("#messageBoard").text('Great game! Want to play again?')
+	  }
 	};
 
 	var draw = function(){
 		if(winnerCheck() == false && count > 8) {
 			alert("It's a draw!");
+			$("#messageBoard").text('');
 		};
 	};
 
@@ -96,15 +100,15 @@ $(document).ready(function(event) {
 			$(this).addClass('yellow');
 			count++;
 			winnerCheck(1, player1Name);
-			draw();
 			messageBoard(player2Name + "'s turn. Click a circle to mark it blue.");
+			draw();
 		} else {
 			board[row][col] = 2;
 			$(this).addClass('blue');
 			count++;
 			winnerCheck(2, player2Name);
-			draw();
 			messageBoard(player1Name + "'s turn. Click a circle to mark it yellow.");
+			draw();
 		};
 	});
 
@@ -124,6 +128,7 @@ var winnerCheck = function(playerValue, playerName){
     ){
   		hasWinner = 1;
   		alert(playerName + " wins!");
+  		$("#playButton").text('Play again!')
       return true;
     };
     return false;
