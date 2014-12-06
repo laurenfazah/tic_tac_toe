@@ -16,15 +16,11 @@ $(document).ready(function(event) {
 	// updates message below board for players
 	var messageBoard = function(x){
 	  return $("#messageBoard").text(x);
-	  if (winnerCheck() == true) {
-  		$("#messageBoard").text('Great game! Want to play again?')
-	  }
 	};
 
 	var draw = function(){
 		if(winnerCheck() == false && count > 8) {
-			alert("It's a draw!");
-			$("#messageBoard").text('');
+			messageBoard("It's a draw! Want to play again?");
 		};
 	};
 
@@ -58,7 +54,7 @@ $(document).ready(function(event) {
 
     // making sure there are no blank names
     if(player1Name=="" || player2Name==""){
-        alert("Please set player all the names.");
+        messageBoard("Please set all the player names.");
         return;
     }
 
@@ -84,13 +80,13 @@ $(document).ready(function(event) {
  		var col = $(this).index();
 
  		if(player1Name=="" || player2Name==""){
-      alert("Please set player all the names.");
+      messageBoard("Please set all the player names.");
       return;
     }
 
  		// doesn't allow spot to be clicked on twice
  		if(board[row][col]!==0){
-      alert("This position is taken. Please try again.");
+       messageBoard("This position is taken. Please try again.");
       return;
     };
 		// if count is even, player 1 is yellow
@@ -99,15 +95,15 @@ $(document).ready(function(event) {
 			board[row][col] = 1;
 			$(this).addClass('yellow');
 			count++;
-			winnerCheck(1, player1Name);
 			messageBoard(player2Name + "'s turn. Click a circle to mark it blue.");
+			winnerCheck(1, player1Name);
 			draw();
 		} else {
 			board[row][col] = 2;
 			$(this).addClass('blue');
 			count++;
-			winnerCheck(2, player2Name);
 			messageBoard(player1Name + "'s turn. Click a circle to mark it yellow.");
+			winnerCheck(2, player2Name);
 			draw();
 		};
 	});
@@ -127,7 +123,7 @@ var winnerCheck = function(playerValue, playerName){
       (board[0][2]==playerValue && board[1][1]==playerValue && board[2][0]==playerValue)
     ){
   		hasWinner = 1;
-  		alert(playerName + " wins!");
+  		messageBoard(playerName + " wins! Want to play again?");
   		$("#playButton").text('Play again!')
       return true;
     };
