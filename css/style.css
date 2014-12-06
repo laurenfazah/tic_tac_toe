@@ -13,10 +13,8 @@ body {
 	width: 100%;
 }
 
-#main_heading {
-}
-
 .heading {
+  margin: 0px auto;
   text-align: center;
   font-family: 'Lobster Two', cursive;
   font-size: 75px;
