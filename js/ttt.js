@@ -97,15 +97,15 @@ $(document).ready(function(event) {
 			$(this).addClass('yellow');
 			count++;
 			messageBoard(player2Name + "'s turn. Click a circle to mark it blue.");
-			winnerCheck(1, player1Name);
 			draw();
+			winnerCheck(1, player1Name);
 		} else {
 			board[row][col] = 2;
 			$(this).addClass('blue');
 			count++;
 			messageBoard(player1Name + "'s turn. Click a circle to mark it yellow.");
-			winnerCheck(2, player2Name);
 			draw();
+			winnerCheck(2, player2Name);
 		};
 	});
 
