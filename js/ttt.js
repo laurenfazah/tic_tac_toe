@@ -18,12 +18,6 @@ $(document).ready(function(event) {
 	  return $("#messageBoard").text(x);
 	};
 
-	var draw = function(){
-		if(winnerCheck() == false && count > 8) {
-			messageBoard("It's a draw! Want to play again?");
-		};
-	};
-
 	var init = function(){
         turn = "";
         board =[
@@ -41,10 +35,17 @@ $(document).ready(function(event) {
     		player2Name = $("#player-2-inp").val();
 	}
 
+	var draw = function(){
+		if(winnerCheck() == false && count > 8) {
+			messageBoard("It's a draw! Want to play again?");
+			return true;
+		};
+	};
+
 	// gathering player info and setting up clean board
 	$("#playButton").click(function (){
 
-    if(hasWinner==1){
+    if(hasWinner==1 || draw() == true || count > 0){
         init();
     }
 
@@ -96,15 +97,15 @@ $(document).ready(function(event) {
 			$(this).addClass('yellow');
 			count++;
 			messageBoard(player2Name + "'s turn. Click a circle to mark it blue.");
-			winnerCheck(1, player1Name);
 			draw();
+			winnerCheck(1, player1Name);
 		} else {
 			board[row][col] = 2;
 			$(this).addClass('blue');
 			count++;
 			messageBoard(player1Name + "'s turn. Click a circle to mark it yellow.");
-			winnerCheck(2, player2Name);
 			draw();
+			winnerCheck(2, player2Name);
 		};
 	});
 
