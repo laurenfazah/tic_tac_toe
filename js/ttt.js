@@ -18,12 +18,6 @@ $(document).ready(function(event) {
 	  return $("#messageBoard").text(x);
 	};
 
-	var draw = function(){
-		if(winnerCheck() == false && count > 8) {
-			messageBoard("It's a draw! Want to play again?");
-		};
-	};
-
 	var init = function(){
         turn = "";
         board =[
@@ -41,10 +35,17 @@ $(document).ready(function(event) {
     		player2Name = $("#player-2-inp").val();
 	}
 
+	var draw = function(){
+		if(winnerCheck() == false && count > 8) {
+			messageBoard("It's a draw! Want to play again?");
+			return true;
+		};
+	};
+
 	// gathering player info and setting up clean board
 	$("#playButton").click(function (){
 
-    if(hasWinner==1){
+    if(hasWinner==1 || draw() == true){
         init();
     }
 
