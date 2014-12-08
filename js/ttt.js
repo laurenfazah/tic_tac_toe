@@ -45,7 +45,7 @@ $(document).ready(function(event) {
 	// gathering player info and setting up clean board
 	$("#playButton").click(function (){
 
-    if(hasWinner==1 || draw() == true){
+    if(hasWinner==1 || draw() == true || count > 0){
         init();
     }
 
