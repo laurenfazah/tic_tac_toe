@@ -85,7 +85,7 @@ td.box_cell.blue {
 
 @media (max-width:320px) {
   table {
-    margin: 0px auto;
+    margin: 0px 0px;
     width: 300px;
     height: 300px;
   }
