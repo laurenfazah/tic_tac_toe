@@ -97,4 +97,17 @@ td.box_cell.blue {
     opacity: .75;
     box-shadow: 2px 2px 0px #888888;
   }
+  .input {
+    height: 30px;
+    width: 175px;
+    font-size: 80%;
+  }
+  #playButton {
+    height: 40px;
+    width: 75px;
+    font-size: 100%;
+  }
+  .heading {
+    font-size: 60px;
+  }
 }
