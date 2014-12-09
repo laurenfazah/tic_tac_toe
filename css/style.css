@@ -85,8 +85,8 @@ td.box_cell.blue {
 
 @media (max-width:420px) {
   table {
-    width: 310px;
-    height: 310px;
+    width: 300px;
+    height: 300px;
   }
   .box_cell {
     border: 1px solid #333333;
@@ -98,15 +98,21 @@ td.box_cell.blue {
   }
   .input {
     height: 30px;
-    width: 175px;
+    width: 100px;
     font-size: 80%;
   }
   #playButton {
     height: 40px;
-    width: 75px;
-    font-size: 100%;
+    width: 100px;
+    font-size: 80%;
   }
   .heading {
-    font-size: 60px;
+    font-size: 50px;
+    padding-top: 10px;
+  }
+  #messageBoard {
+    text-align: center;
+    font-size: 80%;
+    padding: 0 10px 0 10px;
   }
 }
