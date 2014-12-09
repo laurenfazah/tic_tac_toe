@@ -83,7 +83,7 @@ td.box_cell.blue {
   box-shadow: 2px 2px 0px #888888;
 }
 
-@media (max-width:320px) {
+@media (max-width:400px) {
   body {
     width: 320px;
     background-image:url('../img/wavegrid.png');
