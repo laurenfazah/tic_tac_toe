@@ -84,14 +84,6 @@ td.box_cell.blue {
 }
 
 @media (max-width:320px) {
-  body {
-    width: 320px;
-    background-image:url('../img/wavegrid.png');
-  }
-  #main_container {
-    /*margin: 0px auto;*/
-    width: 320px;
-  }
   table {
     margin: 0px auto;
     width: 300px;
